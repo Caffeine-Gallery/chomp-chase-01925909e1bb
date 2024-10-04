@@ -31,12 +31,12 @@ function drawMaze() {
     for (let y = 0; y < GRID_HEIGHT; y++) {
         for (let x = 0; x < GRID_WIDTH; x++) {
             if (maze[y][x] === 1) {
-                ctx.fillStyle = 'blue';
+                ctx.fillStyle = '#1a237e';
                 ctx.fillRect(x * GRID_SIZE, y * GRID_SIZE, GRID_SIZE, GRID_SIZE);
             } else if (maze[y][x] === 0) {
-                ctx.fillStyle = 'yellow';
+                ctx.fillStyle = '#ffd54f';
                 ctx.beginPath();
-                ctx.arc(x * GRID_SIZE + GRID_SIZE / 2, y * GRID_SIZE + GRID_SIZE / 2, 2, 0, Math.PI * 2);
+                ctx.arc(x * GRID_SIZE + GRID_SIZE / 2, y * GRID_SIZE + GRID_SIZE / 2, 3, 0, Math.PI * 2);
                 ctx.fill();
             }
         }
@@ -44,9 +44,9 @@ function drawMaze() {
 }
 
 function drawPlayer() {
-    ctx.fillStyle = 'yellow';
+    ctx.fillStyle = '#f44336';
     ctx.beginPath();
-    ctx.arc(player.x * GRID_SIZE + GRID_SIZE / 2, player.y * GRID_SIZE + GRID_SIZE / 2, GRID_SIZE / 2, 0.2 * Math.PI, 1.8 * Math.PI);
+    ctx.arc(player.x * GRID_SIZE + GRID_SIZE / 2, player.y * GRID_SIZE + GRID_SIZE / 2, GRID_SIZE / 2 - 2, 0.2 * Math.PI, 1.8 * Math.PI);
     ctx.lineTo(player.x * GRID_SIZE + GRID_SIZE / 2, player.y * GRID_SIZE + GRID_SIZE / 2);
     ctx.fill();
 }

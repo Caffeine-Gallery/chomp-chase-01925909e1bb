@@ -5,13 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pac-Man Like Game</title>
     <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="game-container">
+        <h1>Pac-Man Adventure</h1>
         <button id="startButton">Start Game</button>
         <canvas id="gameCanvas" width="400" height="400"></canvas>
-        <div id="score">Score: <span id="scoreValue">0</span></div>
-        <div id="lives">Lives: <span id="livesValue">5</span></div>
+        <div id="game-info">
+            <div id="score">Score: <span id="scoreValue">0</span></div>
+            <div id="lives">Lives: <span id="livesValue">5</span></div>
+        </div>
     </div>
     <div id="high-scores">
         <h2>High Scores</h2>
