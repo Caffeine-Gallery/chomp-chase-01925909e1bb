@@ -15,6 +15,7 @@ body {
 
 canvas {
     border: 2px solid #fff;
+    display: none;
 }
 
 #score, #lives {
@@ -28,4 +29,18 @@ canvas {
 
 #highScoresList {
     padding-left: 20px;
+}
+
+#startButton {
+    font-size: 24px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+#startButton:hover {
+    background-color: #45a049;
 }

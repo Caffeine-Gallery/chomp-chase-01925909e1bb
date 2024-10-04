@@ -2,6 +2,7 @@ import { backend } from 'declarations/backend';
 
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
+const startButton = document.getElementById('startButton');
 
 const GRID_SIZE = 20;
 const GRID_WIDTH = canvas.width / GRID_SIZE;
@@ -10,6 +11,7 @@ const GRID_HEIGHT = canvas.height / GRID_SIZE;
 let player = { x: 1, y: 1 };
 let score = 0;
 let lives = 5;
+let gameRunning = false;
 
 const maze = [
     [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
@@ -78,9 +80,11 @@ function collectDot(x, y) {
 }
 
 function gameOver() {
+    gameRunning = false;
     alert(`Game Over! Your score: ${score}`);
     backend.addScore(score);
     resetGame();
+    showStartButton();
 }
 
 function resetGame() {
@@ -111,13 +115,36 @@ async function updateHighScores() {
 }
 
 function gameLoop() {
+    if (!gameRunning) return;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawMaze();
     drawPlayer();
     requestAnimationFrame(gameLoop);
 }
 
+function startGame() {
+    gameRunning = true;
+    hideStartButton();
+    showGameCanvas();
+    resetGame();
+    gameLoop();
+}
+
+function showStartButton() {
+    startButton.style.display = 'block';
+    canvas.style.display = 'none';
+}
+
+function hideStartButton() {
+    startButton.style.display = 'none';
+}
+
+function showGameCanvas() {
+    canvas.style.display = 'block';
+}
+
 document.addEventListener('keydown', (event) => {
+    if (!gameRunning) return;
     const key = event.key;
     let newX = player.x;
     let newY = player.y;
@@ -134,6 +161,7 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
-resetGame();
-gameLoop();
+startButton.addEventListener('click', startGame);
+
+showStartButton();
 updateHighScores();
