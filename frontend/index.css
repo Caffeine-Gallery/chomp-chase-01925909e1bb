@@ -1,0 +1,31 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+#game-container {
+    text-align: center;
+}
+
+canvas {
+    border: 2px solid #fff;
+}
+
+#score, #lives {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+#high-scores {
+    margin-left: 20px;
+}
+
+#highScoresList {
+    padding-left: 20px;
+}
