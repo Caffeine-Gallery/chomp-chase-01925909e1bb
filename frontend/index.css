@@ -26,8 +26,8 @@ h1 {
 canvas {
     border: 4px solid #ffffff;
     border-radius: 5px;
-    display: none;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    display: none; /* Initially hidden */
 }
 
 #game-info {

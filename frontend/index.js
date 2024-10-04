@@ -123,11 +123,13 @@ function gameLoop() {
 }
 
 function startGame() {
+    console.log("Starting game...");
     gameRunning = true;
     hideStartButton();
     showGameCanvas();
     resetGame();
     gameLoop();
+    console.log("Game started!");
 }
 
 function showStartButton() {
@@ -163,5 +165,11 @@ document.addEventListener('keydown', (event) => {
 
 startButton.addEventListener('click', startGame);
 
+// Initialize the game
 showStartButton();
 updateHighScores();
+
+// Debug: Draw initial game state
+ctx.clearRect(0, 0, canvas.width, canvas.height);
+drawMaze();
+drawPlayer();
